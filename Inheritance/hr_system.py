@@ -10,10 +10,12 @@ class PayrollSystem:
             
 
 # a bass class Employee that handles the common interface for every employee type
-class Employee:
+
+class Employee():
     def __init__(self, id, name):
         self.id = id
         self. name = name
+        
         
         
 # the system requires that every employee procesed must provide a .calculate_payroll() interface
@@ -46,8 +48,9 @@ class CommissionEmployee(SalaryEmployee):
         super().__init__(id, name, weekly_salary)
         self.commission = commission
         
-    def calaculate_payroll(self):
-        fixed = super().calaculate_payroll()
+    def calculate_payroll(self):
+        fixed = super().calculate_payroll()
         return fixed + self.commission
+        
     
     
