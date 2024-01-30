@@ -64,3 +64,14 @@ class SalesPerson(CommissionEmployee):
 class FactoryWorker(HourlyEmployee):
     def work(self, hours):
         print(f"{self.name} manufactures gadgets for {hours} hours.")
+        
+        
+# Temporary secretary performs the role of secretary but uses the HourlyEmployee for payroll purposes
+class TemporarySecretary(Secretary, HourlyEmployee):
+    # implement an init methods to specify attribute and overide python MRO
+    def __init__(self, id, name, hours_worked, hourly_rate):
+        super().__init__(self, id, name, hours_worked, hourly_rate)
+        
+    # overide the .calculate_payroll method to invoke the right implementation for payroll purposes
+    def calculate_payroll(self):
+        return HourlyEmployee.calculate_payroll(self)
