@@ -70,7 +70,7 @@ class FactoryWorker(HourlyEmployee):
 class TemporarySecretary(Secretary, HourlyEmployee):
     # implement an init methods to specify attribute and overide python MRO
     def __init__(self, id, name, hours_worked, hourly_rate):
-        super().__init__(self, id, name, hours_worked, hourly_rate)
+        HourlyEmployee.__init__(self, id, name, hours_worked, hourly_rate)
         
     # overide the .calculate_payroll method to invoke the right implementation for payroll purposes
     def calculate_payroll(self):
