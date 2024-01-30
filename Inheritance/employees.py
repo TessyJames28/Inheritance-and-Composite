@@ -42,4 +42,25 @@ class CommissionEmployee(SalaryEmployee):
         return fixed + self.commission
         
     
-    
+# A Manager is under salaried employees
+class Manager(SalaryEmployee):
+    def work(self, hours):
+        print(f"{self.name} screams and yells for {hours} hours.")
+        
+        
+# A Secretary is also under salaried employee 
+class Secretary(SalaryEmployee):
+    def work(self, hours):
+        print(f"{self.name} expends {hours} hours doing office paperwork.")
+        
+        
+# A sales person is under commission employee
+class SalesPerson(CommissionEmployee):
+    def work(self, hours):
+        print(f"{self.name} expends {hours} hours on the phone.")
+        
+        
+# A factory work is under hourly employee
+class FactoryWorker(HourlyEmployee):
+    def work(self, hours):
+        print(f"{self.name} manufactures gadgets for {hours} hours.")
