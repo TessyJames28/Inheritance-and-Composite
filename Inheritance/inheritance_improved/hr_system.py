@@ -1,3 +1,5 @@
+# This improves the application by making use of the multiple inheritance without having the diamond problem that comes from two deriving from 2 classes that has common base class
+
 class PayrollSystem:
     def calculate_payroll(self, employees):
         print("Calculating Payroll")
