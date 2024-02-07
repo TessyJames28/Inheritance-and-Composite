@@ -1,5 +1,5 @@
 class ProductivitySystem:
-    def ___init__(self):
+    def __init__(self):
         self._roles = {
             "manager": ManagerRole,
             "secretary": SecretaryRole,
@@ -15,7 +15,7 @@ class ProductivitySystem:
         return role_type()
     
     
-    def track(self, employees, hours):
+    def track_work(self, employees, hours):
         print(f"Tracking Employee Productivity")
         print("===============================")
         for employee in employees:
