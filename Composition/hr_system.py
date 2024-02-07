@@ -38,6 +38,7 @@ class PayrollPolicy:
             
 class SalaryPolicy(PayrollPolicy):
     def __init__(self, weekly_salary):
+        super().__init__()
         self.weekly_salary = weekly_salary
 
     def calculate_payroll(self):
@@ -45,6 +46,7 @@ class SalaryPolicy(PayrollPolicy):
 
 class HourlyPolicy(PayrollPolicy):
     def __init__(self, hourly_rate):
+        super().__init__()
         self.hourly_rate = hourly_rate
 
     def calculate_payroll(self):
