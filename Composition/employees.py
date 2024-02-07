@@ -1,6 +1,20 @@
-from hr_system import SalaryPolicy, HourlyPolicy, CommissionPolicy
-from productivity import ManagerRole, SalesRole, SecretaryRole, FactoryRole
+from hr_system import PayrollSystem
+from productivity import ProductivitySystem
+from contacts import AddressBook
 
+
+class EMployeeDatabass:
+    def __init__(self):
+        self._employees = [
+            {"id": 1, "name": "Mary Poppins", "role": "manager"},
+            {"id": 2, "name": "John Smith", "role": "secretary"},
+            {"id": 3, "name": "Kevin Bacon", "role": "sales"},
+            {"id": 4, "name": "Jane Doe", "role": "factory"},
+            {"id": 5, "name": "Robin Williams", "role": "secretary"},
+        ]
+        self.productivity = ProductivitySystem()
+        self.payroll = PayrollSystem()
+        self.employee_addresses = AddressBook()
 
 class Employee:
     def __init__(self, id, name):
