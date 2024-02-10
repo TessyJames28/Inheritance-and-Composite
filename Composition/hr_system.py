@@ -1,21 +1,4 @@
 class PayrollSystem:
-    def __init__(self):
-        self._employee_policies = {
-            1: SalaryPolicy(3000),
-            2: SalaryPolicy(1500),
-            3: CommissionPolicy(1000, 100),
-            4: HourlyPolicy(15),
-            5: HourlyPolicy(9),
-        }
-        
-        
-    def get_policy(self, employee_id):
-        policy = self._employee_policies.get(employee_id)
-        if not policy:
-            return ValueError(employee_id)
-        return policy
-    
-    
     def calculate_payroll(self, employees):
         print("Calculating Payroll")
         print("===================")
@@ -26,41 +9,26 @@ class PayrollSystem:
                 print("- Sent to:")
                 print(employee.address)
             print("")
-            
 
-class PayrollPolicy:
-    def __init__(self):
-        self.hours_worked = 0
-        
-    def track_work(self, hours):
-        self.hours_worked += hours 
-        
-            
-class SalaryPolicy(PayrollPolicy):
+class SalaryPolicy:
     def __init__(self, weekly_salary):
-        super().__init__()
         self.weekly_salary = weekly_salary
 
     def calculate_payroll(self):
         return self.weekly_salary
 
-class HourlyPolicy(PayrollPolicy):
-    def __init__(self, hourly_rate):
-        super().__init__()
+class HourlyPolicy:
+    def __init__(self, hours_worked, hourly_rate):
+        self.hours_worked = hours_worked
         self.hourly_rate = hourly_rate
 
     def calculate_payroll(self):
         return self.hours_worked * self.hourly_rate
 
 class CommissionPolicy(SalaryPolicy):
-    def __init__(self, weekly_salary, commission_per_Sale):
+    def __init__(self, weekly_salary, commission):
         super().__init__(weekly_salary)
-        self.commission_per_sale = commission_per_Sale
-        
-    @property
-    def commission(self):
-        sales = self.hours_worked / 5
-        return sales * self.commission_per_sale
+        self.commission = commission
 
     def calculate_payroll(self):
         fixed = super().calculate_payroll()
